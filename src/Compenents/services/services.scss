@@ -1,6 +1,6 @@
 @import '../../app.scss';
 .services {
-    background: linear-gradient(180deg, #0c0c1d, #111132);
+  background: linear-gradient(180deg, #05050f, #000000);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -72,6 +72,7 @@
         h1 {
           font-size: 96px;
           font-weight: 100;
+          color: #fff;
   
           @include mobile {
             font-size: 36px;
@@ -82,10 +83,11 @@
           width: 300px;
           height: 100px;
           border-radius: 50px;
-          background-color: orange;
+          background-color: #059033;
           border: none;
           font-size: 24px;
           cursor: pointer;
+          color:#fff;
   
           @include mobile {
             font-size: 16px;
@@ -95,52 +97,89 @@
         }
       }
     }
-    .listContainer {
-      flex: 2;
+    .imageContainer {
+      flex: 1;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       max-width: 1366px;
       margin: auto;
-  
+      margin-bottom: 50px;
+      border-radius: 30px;
+    
       @include mobile {
-        flex-direction: column;
         width: 100%;
       }
-  
-      .box {
-        padding: 50px;
-        border: 0.5px solid gray;
+    }
+    
+    .imageContainer img {
+      width: 90%;
+      height: auto;
+      object-fit: cover;
+      margin: auto;
+      border-radius: 30px;
+    
+      @include mobile {
+        width: 70%;
+        height: auto;
+      }
+    }
+    
+    
+  }
+
+  //#########
+  .testimonial {
+    margin: 80px auto;
+    padding: 0 80px;
+    position: relative;
+
+    .next-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      padding: 15px;
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #212EA0;
+    
+      &.back-btn {
+        right: auto;
+        left: 0;
+      }
+    }
+    
+    .next-btn {
+      border-radius: 50%;
+    }
+    .slider {
+      overflow: hidden;
+      ul {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-  
-        @include mobile {
-          border: none;
-          align-items: center;
-          gap: 20px;
-          padding: 10px;
-        }
-  
-        p {
-          @include mobile {
-            display: none;
-          }
-        }
-  
-        button {
-          padding: 10px;
-          background-color: orange;
-          border: none;
-          cursor: pointer;
-  
-          @include mobile {
-            background-color: transparent;
-            border: 1px solid orange;
-            border-radius: 5px;
-            color: orange;
-            width: 50%;
-            padding: 5px;
+        width: 200%;
+        overflow-x: hidden;
+        transition: 0.5s;
+        transform: translate(-15%);
+        li {
+          list-style: none;
+          width: 50%;
+          padding: 20px;
+          .slide {
+            box-shadow: 0 0 20px #0000000d;
+            padding: 40px;
+            border-radius: 10px;
+            color: #676767;
+            line-height: 1.4;
+            img {
+              width: 200px;
+              border-radius: 30%;
+              margin-right: 10px;
+              border: 4px solid #059033;
+            }
           }
         }
       }
     }
-  }
+  }    

@@ -1,3 +1,4 @@
+import ImageBreak from '../ImageBreak';
 import './hero.scss'
 import {motion} from 'framer-motion'
 const textVariants = {
@@ -42,10 +43,10 @@ const Hero = () => {
     <div className="hero">
         <div className="wrapper">
         <motion.div className="textContainer" variants={textVariants} initial="initial" animate="animate">
-            <motion.h2 variants={textVariants}>Waleed Elshafey</motion.h2>
-            <motion.h1 variants={textVariants}>Web developer and UI designer</motion.h1>
+            <motion.h2 variants={textVariants}></motion.h2>
+            <motion.h1 variants={textVariants}>BOXING ALARM</motion.h1>
             <motion.div variants={textVariants} className="buttons">
-                <a href="https://www.linkedin.com/in/waleed-elshafey-575987298/"><motion.button variants={textVariants}>See the Latest Works</motion.button>
+                <a href="https://www.linkedin.com/in/waleed-elshafey-575987298/"><motion.button variants={textVariants}>WHAT WE DID ??</motion.button>
 </a>
                 {/* <motion.button variants={textVariants}>Contact Me</motion.button> */}
             </motion.div>
@@ -53,11 +54,10 @@ const Hero = () => {
         </motion.div>
         </div>
         <motion.div className='slidingTextContainer'  variants={sliderVariants} initial="initial" animate="animate">
-Writer Content Creator Influncer
+            Why Team
         </motion.div>
         <div className="imageContainer">
-
-            <img src="/programmer.svg" alt="" />
+<ImageBreak/>
         </div>
     </div>
   )

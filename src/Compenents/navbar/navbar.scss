@@ -1,6 +1,7 @@
 @import "../../app.scss";
 .navbar {
     height: 100px;
+    color: #ccc;
   
     .wrapper {
       max-width: 1366px;
@@ -15,6 +16,11 @@
         padding: 20px;
       }
   
+      img{
+        width: 70px;
+        margin-left: 50px;
+        
+      }
       span {
         font-weight: bold;
   

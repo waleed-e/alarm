@@ -8,7 +8,7 @@
       left: 0;
       padding-top: 50px;
       text-align: center;
-      color: orange;
+      color: #059033;
       font-size: 36px;
   
     
@@ -49,7 +49,7 @@
             max-height: 300px;
           }
   
-          img {
+          img, p img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -59,13 +59,24 @@
             }
           }
         }
+      p img{
+        width: 40%;
+        height: 40%;
+        object-fit: cover;
+        @include mobile {
+          width: 90%;
+          object-fit: contain;
+        }
+      }
+    
+    
   
         .textContainer {
           flex: 1;
           display: flex;
           flex-direction: column;
           gap: 30px;
-  
+color: #059033;  
           @include mobile {
             transform: none !important;
             padding: 10px;
@@ -91,12 +102,13 @@
           }
   
           button {
-            background-color: orange;
+            background-color: #059033;
             border: none;
             border-radius: 10px;
             padding: 10px;
             width: 200px;
             cursor: pointer;
+            color: #fff;
           }
         }
       }

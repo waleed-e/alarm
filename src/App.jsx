@@ -3,8 +3,8 @@ import Cursor from './Compenents/cursor/Cursor';
 import Hero from './Compenents/hero/Hero';
 import Navbar from './Compenents/navbar/Navbar';
 import Parallax from './Compenents/parallax/Parallax';
-import Portfolio from './Compenents/portfolio/Portfolio';
 import Services from './Compenents/services/Services';
+import Portfolio from './Compenents/portfolio/Portfolio';
 import './app.scss'
 const App = () => {
   return <div>

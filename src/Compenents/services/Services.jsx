@@ -1,43 +1,72 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./services.scss";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
-const variants = {
-  initial: {
-    x: -500,
-    y: 100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-    },
-  },
-};
+import next_icon from '../../../assets/next-icon.png';
+import back_icon from '../../../assets/back-icon.png';
+import user_1 from '../../../assets/user-1.png';
+import user_2 from '../../../assets/user-2.png';
+import user_3 from '../../../assets/user-3.png';
+import user_4 from '../../../assets/user-4.png';
 
 const Services = () => {
-  const ref = useRef();
+  const slider = useRef();
+  let tx = 0;
 
-  const isInView = useInView(ref, { margin: "-100px" });
+  const slideForward = () => {
+    if (tx > -50) {
+      tx -= 25;
+    }
+    slider.current.style.transform = `translateX(${tx}%)`;
+  };
+
+  const slideBackward = () => {
+    if (tx < 0) {
+      tx += 25;
+    }
+    slider.current.style.transform = `translateX(${tx}%)`;
+  };
+
+  const [ImgCount, setImgCount] = useState(2);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImgCount((ImgCount) => (ImgCount === 2 ? 0 : ImgCount + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const variants = {
+    initial: {
+      x: -500,
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const ref = useRef();
 
   return (
     <motion.div
       className="services"
       variants={variants}
       initial="initial"
-      // animate="animate"
       whileInView="animate"
       ref={ref}
-    //   animate={"animate"}
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
-          I focus on helping your brand grow
-          <br /> and move forward
+          Wake Up!
+          <br /> 
         </p>
         <hr />
       </motion.div>
@@ -45,57 +74,78 @@ const Services = () => {
         <div className="title">
           <img src="/people.webp" alt="" />
           <h1>
-            <motion.b whileHover={{color:"orange"}}>Unique</motion.b> Ideas
+            <motion.b whileHover={{color:"#fff"}}>Steps</motion.b> of Project
           </h1>
-        </div>
-        <div className="title">
-          <h1>
-            <motion.b whileHover={{color:"orange"}}>For Your</motion.b> Business.
-          </h1>
-          <button>WHAT I DO?</button>
         </div>
       </motion.div>
-      <motion.div className="listContainer" variants={variants}>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>Commerce</h2>
-          <p>
-         I CAN HELP YOU TO GROW YOU BUINSINESS AND INCREASE YOU SALES.
-          </p>
-          <button><a href="https://www.linkedin.com/posts/waleed-elshafey-575987298_i-am-very-happy-to-understand-this-project-activity-7176241303561596929-AefP?utm_source=share&utm_medium=member_desktop">Go</a></button>
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>HEALTH</h2>
-          <p>
-         I CAN GROW YOUR CLINC AND INCREASE YOUR CLIENTS.
-          </p>
-          <button>Go</button>
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>Sport</h2>
-          <p>
-         I CAN GROW YOUR CLUB AND INCREASE YOUR TRAINEES.
-          </p>
-          <button>Go</button>
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>Learning</h2>
-          <p>
-         I CAN GROW YOUR CENTER AND INCREASE YOUR STUDENTS.
-          </p>
-          <button><a href="https://www.linkedin.com/posts/waleed-elshafey-575987298_i-am-proud-of-implement-this-responsive-web-activity-7175489434371407872-UgiS?utm_source=share&utm_medium=member_desktop">Go</a></button>
-        </motion.div>
+      <motion.div className="imageContainer" variants={variants}>
+        <div className="testimonial">
+        <img
+            src={next_icon}
+            alt=""
+            className="next-btn"
+            onClick={slideBackward}
+            style={{
+              position: "fixed",
+              top: "50%",
+              right: 0,
+              transform: "translateY(-50%)",
+              padding: "15px",
+              width: "50px",
+              borderRadius: "50%",
+              cursor: "pointer",
+              background: "#25bb39",
+            }}
+          />
+ <img
+            src={back_icon}
+            alt=""
+            className="back-btn"
+            onClick={slideForward}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: 0,
+              transform: "translateY(-50%)",
+              padding: "15px",
+              width: "50px",
+              borderRadius: "50%",
+              cursor: "pointer",
+              background: "#25bb39",
+            }}
+          />          <div className="slider">
+            <ul ref={slider}>
+              <li>
+                <div className="slide">
+                  <div className="user-info">
+                    <img src={user_1} alt="" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="slide">
+                  <div className="user-info">
+                    <img src={user_2} alt="" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="slide">
+                  <div className="user-info">
+                    <img src={user_3} alt="" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="slide">
+                  <div className="user-info">
+                    <img  src={user_4} alt="" />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );

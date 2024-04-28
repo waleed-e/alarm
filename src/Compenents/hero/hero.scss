@@ -3,8 +3,9 @@
 .hero {
   height: calc(100vh - 100px);
   overflow: hidden;
-  background: linear-gradient(180deg, #0c0c1d, #111132);
+  background: linear-gradient(180deg, #05050f, #000000);
   position: relative;
+  width: 100%;
 
   .wrapper {
     max-width: 1366px;
@@ -35,7 +36,7 @@
 
       h1 {
         font-size: 88px;
-
+color:#059033;
         @include mobile {
           font-size: 36px;
         }
@@ -45,10 +46,10 @@
         button {
           padding: 30px;
           width: 300px;
-          border: 1px solid white;
+          border: 1px solid #059033;
           border-radius: 10px;
           background-color: transparent;
-          color: white;
+          color: rgb(255, 255, 255);
           margin-right: 20px;
           cursor: pointer;
           font-weight: 300;
@@ -63,14 +64,13 @@
   }
 
   .imageContainer {
-    height: 100%;
+    height: 120%;
     position: absolute;
     top: 0;
-    right: 0;
-    
+    right: 0;    
 
     @include mobile {
-      height: 50%;
+      height: 60%;
       width: 100%;
       top: unset;
       bottom: 0;
